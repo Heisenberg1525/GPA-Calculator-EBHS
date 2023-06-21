@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>GPA Calculator</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+    <title>GPA Calculator</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-  <h1>GPA Calculator</h1>
-  <div class="container">
-    <label for="numClasses">Enter the number of classes:</label>
-    <input type="number" id="numClasses">
-    <button onclick="createClassInputs()">Generate Class Inputs</button>
+    <h1>GPA Calculator</h1>
+    <div class="input-container">
+        <label for="numClasses">Number of Classes:</label>
+        <input type="number" id="numClasses" min="1">
+        <button id="generateButton">Generate Class Inputs</button>
+    </div>
+
     <div id="classInputs"></div>
-    <button onclick="calculateGPA()">Calculate GPA</button>
-    <div id="result"></div>
-  </div>
-  <script src="script.js"></script>
+
+    <div class="input-container">
+      <button id="calculateButton">Calculate GPA</button>
+    </div>    
+
+    <script src="script.js"></script>
 </body>
 </html>

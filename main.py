@@ -83,5 +83,5 @@ for i in range(1, num_classes + 1):
 weighted_gpa = total_grade_points_weighted / total_credits
 unweighted_gpa = total_grade_points_unweighted / total_credits
 
-print("Weighted GPA: {}".format(weighted_gpa))
-print("Unweighted GPA: {}".format(unweighted_gpa))
+print("Weighted GPA: {:.2f}".format(weighted_gpa))
+print("Unweighted GPA: {:.2f}".format(unweighted_gpa))
