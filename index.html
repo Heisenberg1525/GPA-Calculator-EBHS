@@ -3,12 +3,75 @@
 <head>
     <title>GPA Calculator</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        body {
+          background-color: #F0F0F0;
+          font-family: Arial, sans-serif;
+          text-align: center;
+          padding: 20px;
+        }
+
+        h1 {
+          text-align: center;
+        }
+
+        .input-container {
+          margin-bottom: 20px;
+        }
+
+        .input-container label {
+          display: block;
+          margin-bottom: 5px;
+        }
+
+        .input-container select,
+        .input-container input {
+          width: 140px;
+          padding: 5px;
+          border: 1px solid #ccc;
+          border-radius: 3px;
+        }
+
+        .input-container button {
+          margin-top: 10px;
+          padding: 8px 20px;
+          background-color: #2E8B57;
+          color: white;
+          border: none;
+          border-radius: 3px;
+          cursor: pointer;
+        }
+
+        .input-container button:hover {
+          background-color: #228B22;
+        }
+
+        #classInputs {
+          text-align: center;
+          margin-bottom: 20px;
+        }
+
+        #result {
+          text-align: center;
+          margin-top: 20px;
+        }
+
+        #classInputs .classInput {
+          display: flex;
+          margin-bottom: 10px;
+          align-items: center;
+        }
+
+        #classInputs .classInput select {
+          margin-right: 10px;
+        }
+    </style>
 </head>
 <body>
     <h1>GPA Calculator</h1>
     <div class="input-container">
         <label for="numClasses">Number of Classes:</label>
-        <input type="number" id="numClasses" min="1">
+        <input type="number" id="numClasses" min="1" value="0" step="1">
         <button id="generateButton">Generate Class Inputs</button>
     </div>
 
@@ -18,6 +81,169 @@
       <button id="calculateButton">Calculate GPA</button>
     </div>    
 
+    <div id="result"></div>
+
     <script src="script.js"></script>
+    <script>
+        // Generate class inputs
+        function createClassInputs() {
+          const numClassesInput = document.getElementById("numClasses");
+          const numClasses = parseInt(numClassesInput.value);
+
+          const classInputsDiv = document.getElementById("classInputs");
+          classInputsDiv.innerHTML = "";
+
+          for (let i = 1; i <= numClasses; i++) {
+              const classInput = document.createElement("div");
+              classInput.className = "classInput";
+
+              const classTypeLabel = document.createElement("label");
+              classTypeLabel.textContent = "Class " + i + " Type:";
+              classTypeLabel.setAttribute("for", "classType" + i);
+              classInput.appendChild(classTypeLabel);
+
+              const classTypeSelect = document.createElement("select");
+              classTypeSelect.name = "classType";
+              classTypeSelect.id = "classType" + i;
+
+              const academicOption = document.createElement("option");
+              academicOption.value = "academic";
+              academicOption.text = "Academic";
+              classTypeSelect.appendChild(academicOption);
+
+              const honorsOption = document.createElement("option");
+              honorsOption.value = "honors";
+              honorsOption.text = "Honors";
+              classTypeSelect.appendChild(honorsOption);
+
+              const apOption = document.createElement("option");
+              apOption.value = "ap";
+              apOption.text = "AP";
+              classTypeSelect.appendChild(apOption);
+
+              classInput.appendChild(classTypeSelect);
+
+              const classGradeLabel = document.createElement("label");
+              classGradeLabel.textContent = "Class " + i + " Grade:";
+              classGradeLabel.setAttribute("for", "classGrade" + i);
+              classInput.appendChild(classGradeLabel);
+
+              const classGradeSelect = document.createElement("select");
+              classGradeSelect.name = "classGrade";
+              classGradeSelect.id = "classGrade" + i;
+
+              const grades = ["A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D+", "D", "D-", "F"];
+
+              for (let j = 0; j < grades.length; j++) {
+                  const gradeOption = document.createElement("option");
+                  gradeOption.value = grades[j];
+                  gradeOption.text = grades[j];
+                  classGradeSelect.appendChild(gradeOption);
+              }
+
+              classInput.appendChild(classGradeSelect);
+
+              const classCreditsLabel = document.createElement("label");
+              classCreditsLabel.textContent = "Class " + i + " Credits:";
+              classCreditsLabel.setAttribute("for", "classCredits" + i);
+              classInput.appendChild(classCreditsLabel);
+
+              const classCreditsInput = document.createElement("input");
+              classCreditsInput.type = "number";
+              classCreditsInput.min = "0";
+              classCreditsInput.max = "10";
+              classCreditsInput.step = "0.25";
+              classCreditsInput.value = "0";
+              classCreditsInput.name = "classCredits";
+              classCreditsInput.id = "classCredits" + i;
+              classInput.appendChild(classCreditsInput);
+
+              classInputsDiv.appendChild(classInput);
+          }
+        }
+
+        // Calculate GPA
+        function calculateGPA() {
+          const numClassesInput = document.getElementById("numClasses");
+          const numClasses = parseInt(numClassesInput.value);
+
+          let totalCredits = 0;
+          let totalGradePoints = 0;
+
+          for (let i = 1; i <= numClasses; i++) {
+              const classTypeSelect = document.getElementById("classType" + i);
+              const classGradeSelect = document.getElementById("classGrade" + i);
+              const classCreditsInput = document.getElementById("classCredits" + i);
+
+              const classType = classTypeSelect.value;
+              const classGrade = classGradeSelect.value;
+              const classCredits = parseFloat(classCreditsInput.value);
+
+              let gradePoints;
+
+              switch (classGrade) {
+                  case "A+":
+                      gradePoints = 4.3;
+                      break;
+                  case "A":
+                      gradePoints = 4.0;
+                      break;
+                  case "A-":
+                      gradePoints = 3.7;
+                      break;
+                  case "B+":
+                      gradePoints = 3.3;
+                      break;
+                  case "B":
+                      gradePoints = 3.0;
+                      break;
+                  case "B-":
+                      gradePoints = 2.7;
+                      break;
+                  case "C+":
+                      gradePoints = 2.3;
+                      break;
+                  case "C":
+                      gradePoints = 2.0;
+                      break;
+                  case "C-":
+                      gradePoints = 1.7;
+                      break;
+                  case "D+":
+                      gradePoints = 1.3;
+                      break;
+                  case "D":
+                      gradePoints = 1.0;
+                      break;
+                  case "D-":
+                      gradePoints = 0.7;
+                      break;
+                  case "F":
+                      gradePoints = 0.0;
+                      break;
+                  default:
+                      gradePoints = 0.0;
+                      break;
+              }
+
+              if (classType === "honors") {
+                  gradePoints += 0.5;
+              } else if (classType === "ap") {
+                  gradePoints += 1.0;
+              }
+
+              totalGradePoints += gradePoints * classCredits;
+              totalCredits += classCredits;
+          }
+
+          const gpa = totalGradePoints / totalCredits;
+          const resultDiv = document.getElementById("result");
+          resultDiv.innerHTML = "Your GPA is: " + gpa.toFixed(2);
+        }
+
+        // Event listeners
+        document.getElementById("generateButton").addEventListener("click", createClassInputs);
+        document.getElementById("calculateButton").addEventListener("click", calculateGPA);
+    </script>
 </body>
 </html>
