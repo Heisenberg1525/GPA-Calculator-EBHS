@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>GPA Calculator</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>GPA Calculator</h1>
+        <form id="gpa-form">
+            <div class="form-group">
+                <label for="grade">Grade:</label>
+                <input type="number" id="grade" name="grade" min="0" max="100" required>
+            </div>
+            <div class="form-group">
+                <label for="type">Type:</label>
+                <select id="type" name="type" required>
+                    <option value="1">Academic</option>
+                    <option value="2">Honors</option>
+                    <option value="3">AP</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Calculate GPA">
+            </div>
+        </form>
+        <div id="result"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
