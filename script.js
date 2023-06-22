@@ -55,11 +55,16 @@ document.getElementById("num-classes").addEventListener("input", function () {
     var numClasses = parseInt(this.value);
     var classDetails = document.getElementById("class-details");
 
+    // Clear existing class details
     classDetails.innerHTML = "";
 
     for (var i = 1; i <= numClasses; i++) {
         var classDiv = document.createElement("div");
-        classDiv.innerHTML = "<h3>Class " + i + "</h3>";
+        classDiv.classList.add("class-box"); // Add class-box class for styling
+
+        var classTitle = document.createElement("h3");
+        classTitle.textContent = "Class " + i;
+        classDiv.appendChild(classTitle);
 
         var classTypeLabel = document.createElement("label");
         classTypeLabel.textContent = "Class Type (Academic, Honors, AP): ";
@@ -107,6 +112,18 @@ document.getElementById("num-classes").addEventListener("input", function () {
 
         classDiv.appendChild(creditsLabel);
         classDiv.appendChild(creditsInput);
+
+        var removeClassBtn = document.createElement("button");
+        removeClassBtn.classList.add("remove-class-btn"); // Add remove-class-btn class for styling
+        removeClassBtn.textContent = "Remove Class";
+        removeClassBtn.addEventListener("click", function () {
+            classDiv.classList.add("hidden");
+            setTimeout(function () {
+                classDiv.remove();
+            }, 300);
+        });
+
+        classDiv.appendChild(removeClassBtn);
 
         classDetails.appendChild(classDiv);
     }

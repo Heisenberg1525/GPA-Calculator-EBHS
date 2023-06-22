@@ -1,19 +1,42 @@
 body {
-    background-color: #c3e6cb;
+    background-color: #e9f5e2;
     color: #155724;
     font-family: Arial, sans-serif;
     padding: 20px;
+    margin: 0;
+    position: relative;
+}
+
+#logo {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: #155724;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 5px;
 }
 
 h1 {
     text-align: center;
+    margin-top: 50px;
+    font-size: 36px;
+    color: #155724;
+}
+
+#subtitle {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 18px;
+    color: #555;
 }
 
 form {
     background-color: #fff;
     padding: 20px;
     border-radius: 5px;
-    max-width: 500px;
+    max-width: 800px;
     margin: 0 auto;
 }
 
@@ -21,25 +44,21 @@ label {
     display: block;
     margin-bottom: 10px;
     font-weight: bold;
+    color: #155724;
 }
 
 input[type="number"],
 select {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
+    width: 100px; /* Update the width value as per your preference */
+    padding: 5px; /* Adjust the padding as needed */
+    font-size: 14px; /* Adjust the font size as needed */
     border-radius: 5px;
-    border: 1px solid #ced4da;
+    border: 1px solid #155724;
 }
 
-input#num-classes,
-input#credits,
-select#grade {
-    width: calc(100% - 20px);
-}
 
 button[type="submit"] {
-    background-color: #28a745;
+    background-color: #155724;
     color: #fff;
     padding: 10px 20px;
     font-size: 16px;
@@ -47,10 +66,11 @@ button[type="submit"] {
     border: none;
     cursor: pointer;
     margin-top: 10px;
+    transition: background-color 0.3s ease;
 }
 
 button[type="submit"]:hover {
-    background-color: #218838;
+    background-color: #0f3d1b;
 }
 
 #result {
@@ -61,4 +81,85 @@ button[type="submit"]:hover {
 #result h2 {
     font-size: 18px;
     margin-bottom: 10px;
+    color: #155724;
+}
+
+/* Updated styles for class boxes */
+.class-box-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+.class-box {
+    background-color: #fff;
+    padding: 10px; /* Adjust the padding value as needed */
+    border-radius: 5px;
+    margin: 10px;
+    width: calc(50% - 20px);
+    transition: all 0.3s ease;
+    opacity: 1;
+    transform: translateY(0);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .class-box label {
+    margin-top: 5px; /* Adjust the margin-top value as needed */
+  }
+  
+  .class-box select,
+  .class-box input {
+    margin-top: 5px; /* Adjust the margin-top value as needed */
+  }
+  
+#num-classes {
+    width: 100px; /* Increase the width value as per your preference */
+    padding: 10px; /* Increase the padding as needed */
+    font-size: 16px; /* Increase the font size as needed */
+    border-radius: 5px;
+    border: 1px solid #155724;
+}
+
+#credits,
+#grade-letter,
+#class-type {
+    width: 200px; /* Increase the width value as per your preference */
+    padding: 10px; /* Increase the padding as needed */
+    font-size: 16px; /* Increase the font size as needed */
+    border-radius: 5px;
+    border: 1px solid #155724;
+}
+
+/* Removed styles for the Remove Class button */
+.remove-class-btn {
+    display: none;
+}
+
+
+/* Added styles for site branding */
+#site-branding {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 18px;
+    color: #155724;
+    font-weight: bold;
+}
+
+#site-footer {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 14px;
+    color: #555;
+}
+
+#site-footer::before {
+    content: "\00a9";
+}
+
+#current-year {
+    margin-left: 5px;
 }
