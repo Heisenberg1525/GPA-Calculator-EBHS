@@ -3,8 +3,24 @@
 <head>
     <title>Grade Calculator</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        /* Styles for contact information */
+        .contact-info {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 14px;
+            color: #155724; /* Set contact info color */
+        }
+        
+        .contact-info p {
+            margin-bottom: 5px;
+        }
+    </style>
 </head>
 <body>
+    <div id="site-branding">EBHS Grade Calculator</div> <!-- Added site branding -->
+    <div id="logo">EBHS GC</div> <!-- Added site logo -->
+    
     <h1>EBHS Grade Calculator</h1>
     <div style="margin-bottom: 20px;"></div>
     <form onsubmit="event.preventDefault(); calculateGPA();">
@@ -19,6 +35,12 @@
     <div id="result">
         <h2 id="weighted-gpa"></h2>
         <h2 id="unweighted-gpa"></h2>
+    </div>
+    
+    <div class="contact-info">  
+        <p>Suday Kukreja (Creator)</p>
+        <p>Email: sundayk15252@gmail.com (contact me for new ideas)</p>
+        <p>Discord: Walter White#7341</p>
     </div>
     
     <script src="script.js"></script>
