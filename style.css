@@ -120,17 +120,17 @@ button[type="submit"]:hover {
     opacity: 1;
     transform: translateY(0);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  }
-  
-  .class-box label {
+}
+
+.class-box label {
     margin-top: 5px; /* Adjust the margin-top value as needed */
-  }
-  
-  .class-box select,
-  .class-box input {
+}
+
+.class-box select,
+.class-box input {
     margin-top: 5px; /* Adjust the margin-top value as needed */
-  }
-  
+}
+
 #num-classes {
     font-family: 'Open Sans', sans-serif;
     width: 100px; /* Increase the width value as per your preference */
@@ -156,7 +156,6 @@ button[type="submit"]:hover {
     display: none;
 }
 
-
 /* Added styles for site branding */
 #site-branding {
     font-family: 'Open Sans', sans-serif;
@@ -168,6 +167,20 @@ button[type="submit"]:hover {
     font-weight: bold;
 }
 
+#site-navigation {
+    font-family: 'Open Sans', sans-serif;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#site-navigation a {
+    color: #155724;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+/* Added styles for site footer */
 #site-footer {
     font-family: 'Open Sans', sans-serif;
     position: absolute;
@@ -184,4 +197,3 @@ button[type="submit"]:hover {
 #current-year {
     margin-left: 5px;
 }
-
