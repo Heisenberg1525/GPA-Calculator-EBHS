@@ -197,3 +197,7 @@ button[type="submit"]:hover {
 #current-year {
     margin-left: 5px;
 }
+
+#calculatorForm {
+    text-align: center;
+}
