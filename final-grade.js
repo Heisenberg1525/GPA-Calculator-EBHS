@@ -108,4 +108,4 @@ function calculateGrade(fg) {
     } else {
         return 'F';
     }
-}
+} 
