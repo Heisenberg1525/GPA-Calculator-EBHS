@@ -85,7 +85,7 @@ document.getElementById("num-classes").addEventListener("input", function () {
         classDiv.appendChild(classTypeInput);
 
         var gradeLabel = document.createElement("label");
-        gradeLabel.textContent = "Grade Received: ";
+        gradeLabel.textContent = " Grade Received: ";
         var gradeInput = document.createElement("select");
         gradeInput.id = "grade-" + i;
         gradeInput.required = true;
@@ -103,7 +103,7 @@ document.getElementById("num-classes").addEventListener("input", function () {
         classDiv.appendChild(gradeInput);
 
         var creditsLabel = document.createElement("label");
-        creditsLabel.textContent = "Credits: ";
+        creditsLabel.textContent = " Credits: ";
         var creditsInput = document.createElement("input");
         creditsInput.type = "number";
         creditsInput.id = "credits-" + i;

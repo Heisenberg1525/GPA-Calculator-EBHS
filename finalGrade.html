@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+        <title>Final Grade Calculator</title>
+          <link rel="stylesheet" href="style.css">
+          <link rel="icon" type="png" href="eblogo.png"/>
+    </head>
+    <body>
+        <div id="header">
+            <div id="logo">
+              <a href="home.html">Home</a>
+            </div>
+              <a href="about.html">About</a>
+              <a href="finalGrade.html">Final Grade Calculator</a>
+              <a href="gpaCalc.html">GPA Calculator</a>
+          </div>
+          <h1><center>Final Grade Calculator</center></h1>
+            <form id="grade-form">
+              <label id="classCount" for="class-count">Number of Classes</label>
+              <input type="number" id="class-count" name="class-count" min="1" required>
+                <br>
+              <input type="submit" id="generateTable" value="Generate Table">
+            </form>
+          <div id="grade-table"></div>
+          
+          <script src="final-grade.js"></script>
+    </body>
+  </html>
